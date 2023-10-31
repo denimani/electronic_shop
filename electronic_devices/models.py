@@ -34,7 +34,6 @@ class Product(models.Model):
     model = models.CharField(max_length=250, verbose_name='Модель')
     release_date = models.DateField(verbose_name='Дата выхода продукта на рынок')
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, verbose_name='Поставщик')
-    debt = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name='Долг')
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
 
     def __str__(self):
@@ -64,6 +63,7 @@ class NetworkNode(models.Model):
     products = models.ManyToManyField(Product, verbose_name='Продукты')
     supplier = models.ForeignKey(Supplier, on_delete=models.CASCADE, verbose_name='Поставщик', **NULLABLE)
     created_at = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
+    debt = models.DecimalField(max_digits=10, decimal_places=2, default=0, verbose_name='Долг')
 
     def __str__(self):
         return self.name
