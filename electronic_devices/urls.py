@@ -10,4 +10,6 @@ router.register(r'suppliers', SupplierViewSet, basename='suppliers')
 router.register(r'products', ProductViewSet, basename='products')
 router.register(r'network-nodes', NetworkNodeViewSet, basename='network-nodes')
 
-urlpatterns = router.urls
+urlpatterns = [
+    *router.urls
+]
